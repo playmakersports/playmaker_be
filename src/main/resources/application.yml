@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: main-server
+  servlet:
+    multipart:
+      enabled: true
+      location: /tmp/image
+      max-request-size: 30MB
+      max-file-size: 10MB
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://svc.sel3.cloudtype.app:30969/playmaker
+    username: root
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+logging.level:
+  org.hibernate.SQL: debug
+
+jwt:
+  secret: authenticationplaymakerjwtsecretkeyauthorization
